@@ -1,5 +1,5 @@
 const router            = require("express").Router();
-const Wholesaleproduct  = require("./../models/wholesaleproduct")
+// const Wholesaleproduct  = require("./../models/wholesaleproduct")
 const get_data          = require("../utils/data");
 const { getCart }       = require("../utils/cart");
 

@@ -1,11 +1,5 @@
 const express                 = require("express");
 const router                  = express.Router();
-const nodemailer              = require("nodemailer");
-const { google }              = require("googleapis");
-const session                 = require('express-session');
-const passport                = require("passport");
-const passportLocalMongoose   = require("passport-local-mongoose");
-//
 // const Testimonial             = require("../models/testimonial");
 const testimonials = require("../data/all_data.json.json").testimonials;
 //
