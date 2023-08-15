@@ -1,0 +1,55 @@
+<%- include("partials/header") %>
+
+	
+<div class="product-details-div">
+  <div class="card">
+    <div class="row">
+      <aside class="col-sm-5 border-right">
+
+        <article class="gallery-wrap"> 
+          <div class="">
+            <div>
+              <a href="#"><img class="product-details-img-1" src="<%= product.image %>"></a>
+            </div>
+          </div>
+        </article>
+
+      </aside>
+      <aside class="col-sm-7">
+  <article class="card-body p-5">
+    <h3 class="title mb-3"><%= product.name %></h3>
+  
+  <p class="price-detail-wrap"> 
+    <span class="price h3 text-warning"> 
+      <span class="">ZMW <%= product.price %></span>
+    </span> 
+    <span><%= product.quantity %></span> 
+  </p> <!-- price-detail-wrap .// -->
+  <dl class="item-property">
+    <dt>Type</dt>
+    <dd><p><%= product.type %></p></dd>
+  </dl>
+  <dl class="item-property">
+    <dt>Description</dt>
+    <dd><p><%= product.description %></p></dd>
+  </dl>
+  <dl class="param param-feature">
+    <dt>Availability:</dt>
+    <dd><%= product.availability %> in stock</dd>
+  </dl>  <!-- item-property-hor .// -->
+  
+  <hr>
+  
+    <a href="/cart/add/<%= product.slug %>?route=retail" class="btn btn-sm btn-outline-secondary text-uppercase"> ADD TO CART </a>
+  </article> <!-- card-body.// -->
+      </aside> <!-- col.// -->
+    </div> <!-- row.// -->
+  </div> <!-- card.// -->
+  
+  
+  </div>
+  <!--container.//-->
+  
+</div>
+
+<%- include("partials/footer") %>

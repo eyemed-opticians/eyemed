@@ -1,0 +1,26 @@
+<div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
+    <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+
+        <% products.forEach(product => { %>
+
+            <div class="col card-outer">
+                <div class="card h-100 shadow-sm"> <img src="<%= product.image %>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <!-- <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-primary">ASUS Rog</span> <span class="float-end price-hp">12354.00€</span> </div> -->
+                        <div class="card-title mb-3 product-title"><a href="/wholesale/<%= product.slug %>"><%= product.slug %></a></div>
+                        <div class="clearfix mb-3"> <span class="float-start price-hp">K<%= product.price %></span> <span class="float-end"></span> </div>
+                        <h5 class="card-title"><%= product.description %></h5>
+                        <div class=" my-4"> <a href="/cart/add/<%= product.slug %>" class="btn suppliers-btn">Add to Cart</a> <a href="/wholesale/<%= product.slug %>" class="btn suppliers-btn-alt">DETAILS</a></div>
+                        <div class="">
+                          <a href="/cart/update/<%= product.slug %>?action=add">+</a>&nbsp;
+                          <a href="/cart/update/<%= product.slug %>?action=remove">-</a>&nbsp;
+                          <a href="/cart/update/<%= product.slug %>?action=clear">Clear</a>&nbsp;
+                        </div>
+                      </div>
+                </div>
+            </div>
+
+        <% }); %>
+
+    </div>
+</div>

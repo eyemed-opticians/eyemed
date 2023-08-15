@@ -1,0 +1,75 @@
+<%- include("partials/header") %>
+
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li>Blog</li>
+          </ol>
+          <h2><a href="/blog">Blog</a></h2>
+        </div>
+      </section><!-- End Breadcrumbs -->
+  
+      <!-- ======= Blog Section ======= -->
+      <section id="blog" class="blog">
+        <div class="container">
+
+          <h1 class="title">Blog</h1>
+          <br>
+  
+          <div class="row">
+
+            <% blogs.forEach(blog => { %>
+
+              <div class="col-lg-4  col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+                <article class="entry">
+    
+                  <div class="entry-img">
+                    <a href="/blog/<%= blog.slug %>"><img src="<%= blog.image %>" alt="Eyemed opticiancs blog header image" class="img-fluid"></a>
+                  </div>
+    
+                  <h2 class="entry-title">
+                    <a href="/blog/<%= blog.slug %>"><%= blog.title %></a>
+                  </h2>
+    
+                  <div class="entry-meta">
+                    <ul>
+                      <li class="d-flex align-items-center"><i class="icofont-book"></i> <a href="/blog/<%= blog.slug %>"><%= blog.topic %></a></li>
+                      <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="/blog/<%= blog.slug %>"><%= blog.createdAt %></a></li>
+                    </ul>
+                  </div>
+    
+                  <div class="entry-content">
+                    <p>
+                      <%- blog.description.substring(0, 180) + "..." %>
+                    </p>
+                    <div class="read-more">
+                      <a href="/blog/<%= blog.slug %>">Read More</a>
+                    </div>
+                  </div>
+    
+                </article><!-- End blog entry -->
+              </div>
+              
+            <% }); %>
+
+          </div>
+
+  
+          <!-- <div class="blog-pagination" data-aos="fade-up">
+            <ul class="justify-content-center">
+              <li class="disabled"><i class="icofont-rounded-left"></i></li>
+              <li><a href="#">1</a></li>
+              <li class="active"><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#"><i class="icofont-rounded-right"></i></a></li>
+            </ul>
+          </div> -->
+  
+        </div>
+      </section><!-- End Blog Section -->
+  
+  
+<%- include("partials/footer") %>

@@ -1,0 +1,39 @@
+<%- include("partials/header") %>
+
+<%- include("partials/breadcrumbs") %>
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+  
+          <div class="section-title">
+            <h2 data-aos="fade-up">Products</h2>
+            <!-- <p data-aos="fade-up">We have the following products</p> -->
+          </div>
+  
+          <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+            <% products.forEach(product => { %>
+
+              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                <img style="object-fit: contain;" src="<%= product.image %>" class="img-fluid product-image-cov" alt="">
+                <div class="portfolio-info">
+                  <h4><%= product.name %></h4>
+                  <p><%= product.brand %></p>
+                  <a href="<%= product.image %>" data-gall="portfolioGallery" class="venobox preview-link" title="<%= product.name %>"><i class="bx bx-plus"></i></a>
+                  <a href="products/<%= product.slug %>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                  <br>
+                  <div class="btn-group">
+                    <a href="/cart/add/<%= product.slug %>?route=retail" type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</a>
+                  </div>
+                </div>
+              </div>
+
+            <% }) %>
+  
+          </div>
+  
+        </div>
+    </section><!-- End Portfolio Section -->
+
+<%- include("partials/footer") %>

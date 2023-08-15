@@ -1,0 +1,69 @@
+<%- include("partials/header") %>
+
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog" style="margin-top: 10rem;">
+        <div class="container">
+  
+          <div class="row">
+  
+            <div class="col-lg-8 entries">
+  
+              <article class="entry entry-single">
+  
+                <div style="height: 30rem; background: url('<%= blog.image %>') no-repeat; background-size: 100%;" class="entry-img">
+                </div>
+  
+                <h2 class="entry-title">
+                  <p><%= blog.title %></p>
+                </h2>
+  
+                <div class="entry-meta">
+                  <ul>
+                    <li class="d-flex align-items-center"><i class="icofont-book"></i></a><%= blog.topic %></li>
+                    <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i><%= blog.createdAt %></li>
+                  </ul>
+                </div>
+  
+                <div class="entry-content">
+                  
+                  <%- blog.sanitizedHtml %>
+  
+                </div>
+
+              </article><!-- End blog entry -->
+  
+            </div><!-- End blog entries list -->
+  
+            
+            <div class="col-lg-4">
+
+              <div class="sidebar">
+
+                <h3 class="sidebar-title">More Articles</h3>
+                <div class="sidebar-item recent-posts">
+
+                  <% blogs.forEach(blog => { %>
+
+                    <div class="post-item clearfix">
+                      <img src="<%= blog.image %>" alt="" style="padding-right: 10px;">
+                      <p><a style="text-decoration: none; color: rgb(41, 40, 40);" href="/blog/<%= blog.slug %>"><%= blog.title %></a></p>
+                      <p><%= blog.createdAt %></p>
+                    </div>
+
+                  <% }); %> 
+
+                </div><!-- End sidebar recent posts-->
+
+              </div><!-- End sidebar -->
+
+            </div><!-- End blog sidebar -->
+  
+            </div><!-- End blog sidebar -->
+  
+          </div>
+  
+        </div>
+      </section><!-- End Blog Section -->
+
+<%- include("partials/footer") %>

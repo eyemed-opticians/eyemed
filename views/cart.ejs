@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Eyemed Opticians Zambia | <%= pageName %></title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/assets/img/favicon.jpg" rel="icon">
+  <link href="/assets/img/favicon.jpg" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="/assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
+  <link href="/assets/css/style.scss" rel="stylesheet">
+  <!-- <link href="/assets/css/popout.css" rel="stylesheet"> -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" rel="stylesheet">
+  <link href="maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link href="/assets/css/cart.css" rel="stylesheet">
+  <link href="/assets/css/flash.css" rel="stylesheet">
+  
+  <script src="maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+  <!-- ========== Header ========== -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <a href="/" class="cart-logo" style="margin-right: auto; max-width: 6rem; max-height: 45px;">
+        <img style="max-width: 6rem; max-height: 45px;" src="/assets/img/logo.png" alt="">
+      </a>
+
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/products">Products</a></li>
+          <li><a href="/cart">Cart
+            <% if (cart != null) { %> 
+              <span class="cart-number"><%= cart.qty %></span>
+            <% } %>
+          </a></li>
+          <li><a href="https://suppliers.eyemedopticians.com"><strong>Wholesale</strong></a></li>
+
+          <% if (pageName === "Home") { %>
+            <li><a href="/#contact">Contact</a></li>
+          <% } else if (pageName === "Wholesale") { %>
+            <li><a href="/#contact">Contact</a></li>
+          <% } else { %>
+            <li><a href="/#appointment">Appointment</a></li>
+          <% } %>
+
+        </ul>
+      </nav>
+      <!-- .nav-menu -->
+
+      <% if (pageName === "Home") { %>
+        <a href="/#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>
+      <% } else if (pageName === "Wholesale") { %>
+        <a href="#" class="appointment-btn scrollto"><span class="d-none d-md-inline">Generate</span> Quotation</a>
+      <% } else { %>
+        <a href="/#contact" class="appointment-btn scrollto">CONTACT<span class="d-none d-md-inline"> US</span></a>
+      <% } %>
+
+    </div>
+  </header>
+  <!-- End Header -->
+
+<body>
+  <main style="margin-top: 10rem; margin-bottom: 15rem;">
+    <div id="messages" class="app-content pt-3 p-md-3 p-lg-4">
+      <div class="container-xl flash-box">
+  
+        <% if (success != '') { %>
+          <p class="alert alert-success"><%= success %></p>
+        <% } %>  
+  
+        <% if (error != '') { %>
+          <p class="alert alert-danger"><%= error %></p>
+        <% } %>  
+  
+      </div>
+    </div>
+   <div class="basket">
+
+      <h1 class="title">Cart</h1>
+
+      <!-- <div class="basket-module">
+        <label for="promo-code">Enter a promotional code</label>
+        <input id="promo-code" type="text" name="promo-code" maxlength="5" class="promo-code-field">
+        <button class="promo-code-cta">Apply</button>
+      </div> -->
+
+
+      <% if (cart != null) { %>
+
+        <div class="basket-labels">
+          <ul>
+            <li class="item item-heading">Item</li>
+            <li class="price">Price</li>
+            <li class="quantity">Quantity</li>
+            <li class="subtotal">Subtotal</li>
+          </ul>
+        </div>
+
+        <% cart.products.forEach(product => { %> 
+
+          <div class="basket-product">
+            <div class="item">
+              <div class="product-image">
+                <img style="max-width: 9rem;" src="<%= product.image %> " alt="<%= product.name %> " class="product-frame">
+              </div>
+              
+              <div class="product-details">
+                <h1><strong><span class="item-quantity"><%= product.qty %></span> X <%= product.title %></strong></h1>
+                <p><strong><%= product.name %> </strong></p>
+              </div>
+            </div>
+            <div class="price"><%= product.price %></div>
+            
+            <div class="quantity">
+              <a href="/cart/update/<%= product.slug %>?action=add"><span class="cart-control">+</span></a><p class="quantity-field"><%= product.qty %> </p><a href="/cart/update/<%= product.slug %>?action=remove" class=""><span class="cart-control">-</span></a>
+            </div>
+            <div id="subTotal" class="subtotal"><%= product.subTotal %></div>
+            <div class="remove">
+              <a href="/cart/update/<%= product.slug %>?action=clear">Remove</a>
+            </div>
+          </div>  
+
+        <% }); %> 
+      <% } else { %>
+        <div style="padding: 2rem; margin-top: 2rem; background-color: rgb(241, 242, 243);" class="card">
+          <h6 style="font-size: 1.5rem" class="">You don't have any items in your cart</h6>
+          <h6 class="go-shopping">Go <a href="/products">shopping</a>!</h6>
+        </div>
+      <% } %> 
+
+    </div>
+
+    <aside>
+      <div class="summary">
+        <div class="summary-total-items"><span class=""></span> You have 
+          <% if (cart != null) { %> 
+            <%= cart.qty %>
+          <% } else { %> 
+            no
+          <% } %>
+          products in your cart
+        </div>
+        <div class="summary-subtotal mb-5">
+          <div class="subtotal-title">Subtotal</div>
+          <div class="subtotal-value final-value" id="basket-subtotal">
+            <% if (cart != null) { %> 
+              <%= cart.price %>
+            <% } else { %> 
+              cart empty
+            <% } %>
+          </div>
+          <div class="summary-promo hide">
+            <div class="promo-title">Promotion</div>
+            <div class="promo-value final-value" id="basket-promo"></div>
+          </div>
+        </div>
+
+        <div class="summary-total">
+          <div class="total-title">Total</div>
+          <div class="total-value final-value" id="basket-total">
+            <% if (cart != null) { %> 
+              <%= cart.price %>
+            <% } else { %> 
+              cart empty
+            <% } %>
+          </div>
+        </div>
+        <div class="summary-checkout">
+          <% if (cart != null) { %> 
+            <a style="color: #fff;" class="checkout-cta" onclick="rFormToggle()" role="button">Place Order</a>
+            <!-- <a class="checkout-cta-1" onclick="rFormToggle()" role="button" aria-expanded="false" aria-controls="collapseExample">Place Order</a> -->
+            <% } else { %> 
+            <a href="/products" class="checkout-cta">Go shopping</a>
+          <% } %>
+          <br>
+          <a style="color: #fff" class="checkout-cta-1" onclick="sFormToggle()" role="button" aria-expanded="false" aria-controls="collapseExample">Place Special Order</a>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <%- include("partials/rOrderForm"); %>
+  <%- include("partials/sOrderForm"); %> 
+  
+
+<script type="text/javascript">
+  function pop(div) {
+    document.getElementById(div).style.display = 'block';
+  }
+  function hide(div) {
+    document.getElementById(div).style.display = 'none';
+  }
+  //To detect escape button
+  document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+      hide('popDiv');
+    }
+  };
+</script>
+<script src="/assets/js/flash.js"></script>
+</body>
+
+<%- include("partials/footer"); %>

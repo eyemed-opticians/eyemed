@@ -1,0 +1,39 @@
+{
+  "name": "eyemed-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^4.4.1",
+    "cookie-parser": "^1.4.5",
+    "dompurify": "^2.2.9",
+    "dotenv": "^9.0.2",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.17.2",
+    "express-validator": "^7.0.1",
+    "fs": "^0.0.1-security",
+    "googleapis": "^73.0.0",
+    "handlebars": "^4.7.7",
+    "jsdom": "^16.6.0",
+    "marked": "^5.1.2",
+    "mongoose": "^5.12.10",
+    "nodemailer": "^6.6.0",
+    "passport": "^0.6.0",
+    "passport-local-mongoose": "^6.1.0",
+    "path": "^0.12.7",
+    "puppeteer": "^20.9.0",
+    "slugify": "^1.5.3"
+  }
+}

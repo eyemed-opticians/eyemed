@@ -1,0 +1,104 @@
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <a href="/" class="footer-logo"><img style="width: 7rem; margin-bottom: 1rem;" src="/assets/img/logo.png" alt=""></a>  
+
+            <div class="footer-info">
+
+                <!-- <h3>Eyemed</h3>
+                <h5>Optical Suppliers Zambia Limited</h5> -->
+
+              <p>
+                <strong>Eyemed Opticians Limited</strong><br>
+                Lonhro House First Floor, Room 1, <br/>
+                Off Cairo road, Lusaka <br>
+              </p>
+
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#appointment">Appointmet</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="/products">Products</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/wholesale">Wholesale</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/privacy-policy">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Contact us</h4>
+            <p>
+              <% if(data.phoneOne) { %>
+                <strong>Phone:</strong> <%= data.phoneOne.value %><br>
+              <% } %>
+              <% if(data.emailOne) { %>
+                <strong>Email:</strong> <%= data.emailOne.value %><br>
+              <% } %>
+            </p>
+            <div class="social-links mt-3">
+              <a href="https://www.google.com/maps/place/Eyemed+opticians/@-15.414625,28.281585,14z/data=!4m5!3m4!1s0x0:0x3d01218bb790b85e!8m2!3d-15.4146249!4d28.281585?hl=en" class="twitter"><i class="bx bx-map"></i></a>
+              <a href="https://facebook.com/eyemedframesandlenses" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <!-- <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a> -->
+              <!-- <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> -->
+              <!-- <a href="https://www.linkedin.com/in/harrison-tembo-128161221/?trk=public_profile_samename-profile&originalSubdomain=zm" class="linkedin"><i class="bx bxl-linkedin"></i></a> -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <span id="cyear"></span> <strong><span>Eyemed Opticians Limited.</span></strong> All Rights Reserved.
+      </div>
+      <div style="padding-bottom: 2rem;" class="credits">
+        Developed by <a class="visor" href="https://visor.llc/">Visor Web Technologies</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <script>
+    const cyear = document.getElementById("cyear");
+    cyear.innerHTML = new Date().getFullYear();
+  </script>
+  
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="/assets/vendor/counterup/counterup.min.js"></script>
+  <script src="/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="/assets/vendor/venobox/venobox.min.js"></script>
+  <script src="/assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/portfolio.js"></script>
+  <!-- Added Templates JS File -->
+  <script src="/assets/js/added-templates.js"></script>
+  <!-- Cart JavaScript -->
+  <script src="/assets/js/cart.js"></script>
+
+</body>
+
+</html>

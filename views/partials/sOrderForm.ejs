@@ -1,0 +1,161 @@
+<!-- HTML -->
+<div class="overlay-form-s">
+    <!-- <div class="close-btn" onclick="sFormToggle()">×</div> -->
+    <h1 style="margin-top: 5rem;" >Place a special order</h1>
+    <br>
+    <p>
+    Let us know what you need and we'll get back to you ;)
+    </p>
+    <form action="/order/specialorder" method="POST">
+        <div class="form-element">
+            <label for="name">Full name</label>
+            <input type="text" name="name" id="name" required>
+          </div>
+          <div class="form-element">
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" required>
+          </div>
+          <div class="form-element">
+              <label for="phone">Phone</label>
+              <input type="phone" name="phone" id="phone" required>
+          </div>
+          <div class="form-element textarea-div">
+            <label for="message">Message</label>
+            <textarea class="textarea" rows="3" type="message" name="message" id="message" required></textarea>
+          </div>
+          <div class="form-element">
+            <button>Order</button>
+          </div></form>
+    <div class="close-btn" onclick="sFormToggle()">×</div>
+  </div>
+
+  <!-- CSS -->
+  <style>
+  body {
+    margin:0px;
+    font-family:"Open Sans",sans-serif;
+    background:#ddd;
+  }
+  .overlay-form-s {
+    position:absolute;
+    top:50vh;
+    left:0px;
+    width:100vw;
+    height:0vh;
+    /* background:rgba(0,0,0,0.8); */
+    background: rgb(253 111 1 / 79%);
+    z-index:-1;
+    opacity:0;
+    /* padding:80px 100px; */
+    padding: 30px 40px;
+    overflow-x:hidden;
+    overflow-y:auto;
+    box-sizing:border-box;
+    transition: top 500ms ease-in-out,
+                opacity 500ms ease-in-out,
+                height 0ms ease-in-out 500ms;  
+  }
+  @media screen and (min-width: 720px) {
+      .overlay-form-s {
+        padding: 20px 200px;
+      }
+  }
+  .overlay-form-s .close-btn {
+    position:absolute;
+    bottom:20px;
+    right:40px;
+    color:#fff;
+    font-size:40px;
+    font-weight:600;
+    cursor:pointer;
+  }
+  .overlay-form-s h1 {
+    font-size:32px;
+    color:#fff;
+  }
+  .overlay-form-s p {
+    font-size:16px;
+    color:#eee;
+    margin:-15px 0px 30px;
+  }
+  .overlay-form-s .form-element {
+    margin:20px 0px;
+  }
+  .overlay-form-s label {
+    display:block;
+    font-size:17px;
+    color:#eee;
+    margin-bottom:5px;
+  }
+  .overlay-form-s input {
+    width:100%;
+    padding:6px;
+    font-size:17px;
+    background:transparent;
+    outline:none;
+    border:2px solid #eee;
+    border-radius:10px;
+  }
+  .overlay-form-s button,
+  .center button {
+    margin-top:10px;
+    width:100px;
+    height:35px;
+    font-size:15px;
+    text-transform:uppercase;
+    background:#fff;
+    color:#222;
+    border:none;
+    outline:none;
+    border-radius:10px;
+  }
+  .center {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+  }
+  .center button {
+    width:150px;
+    height:40px;
+    font-weight:600;
+    box-shadow:3px 3px 2px 1px rgba(0,0,0,0.1);
+    cursor:pointer;
+  }
+   
+  body.activeFormS .overlay-form-s {
+      z-index:2;
+      opacity:1;
+      top:0px;
+      height:100vh;
+      transition: top 500ms ease-in-out,
+      opacity 500ms ease-in-out,    height 0ms ease-in-out 0ms,
+  }
+  .textarea-div {
+    display: flex;
+    display: block;
+    margin-top: 4rem;
+  }
+  .textarea {
+    width: 100%;
+    background: #f68630;
+    border-radius: 15px;
+    border-color: white;
+    border: 2px solid #eee;
+    color: white;
+    font-size: 1.2rem;
+  }
+  .textarea::selection,
+  .textarea:active,
+  .textarea:current,
+  .textarea:focus {
+    border:2px solid #eee;
+    border-radius:10px;
+  }
+  </style>
+  <!-- JavaScript -->
+  <script>
+  function sFormToggle(){
+    document.body.classList.toggle('activeFormS');
+  }
+  </script>

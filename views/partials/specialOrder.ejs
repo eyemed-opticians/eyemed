@@ -1,0 +1,72 @@
+
+  <div class="collapse well" id="special-order">
+    <!-- <div class="" id="special-order" > -->
+    <div id="main-wrapper" class="container">
+      <div class="row justify-content-center">
+          <div class="col-xl-10 mb-5 mt-2">
+              <div class="card border-0">
+                  <div class="card-body p-0">
+                      <div class="row no-gutters popout-container">
+                          <div class="col-lg-6 popout">
+                              <div class="p-5">
+                                  <div class="mb-3">
+                                      <h3 class="h4 font-weight-bold text-theme">Place Order</h3>
+                                  </div>
+                                  <!-- <h6 class="h5 mb-0">Enter your company name</h6> -->
+                                  <p class="text-muted mt-2 mb-2">Enter your information so that we can get in touch with you.</p>
+                                  
+                                    <form action="/order/specialorder" method="POST">
+
+                                      <div class="form-group">
+                                        <label for="yourName">Your Name</label>
+                                        <input type="text" name="name" class="form-control" id="yourName" required="true" />
+                                      </div>
+
+                                      <div class="form-group">
+                                        <label for="email">Email Address</label>
+                                        <input type="email" name="email" class="form-control" id="email" required="true" />
+                                      </div>
+
+                                      <div class="form-group mb-5">
+                                          <label for="phone">Phone Number</label>
+                                          <input name="phone" type="text" class="form-control" id="phone" required="true" />
+                                      </div>
+
+                                      <div class="form-group mb-5">
+                                        <label for="phone">Message</label>
+                                        <textarea name="message" id="message" cols="30" rows="10" class="message-input"></textarea>
+                                        <!-- <input name="phone" type="text" class="form-control" id="phone" required="true" /> -->
+                                      </div>
+
+                                      <button type="submit" class="btn btn-theme">Send Order</button>
+                                  
+                                    </form>
+
+                                    <!-- <a href="#" onClick="hide('popDiv')">Close</a> -->
+
+                              </div>
+                          </div>
+                          <div class="col-lg-6 d-none d-lg-inline-block company-intro">
+                              <div class="account-block rounded-right">
+                                  <div class="overlay rounded-right"></div>
+                                  <div class="account-testimonial">
+                                      <h4 class="text-white mb-4">Eyemed Optical Suppliers</h4>
+                                      <p class="lead text-white">We are a country-wide wholesale and retail supplier of eye products, we have worldclass quality frames and medication. place an order today  and we'll get in touch with you to arange payments and delivery!</p>
+                                      <p></p>
+                                  </div>
+                                  
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- end card-body -->
+              </div>
+              <!-- end card -->
+              <!-- <p class="text-muted text-center mt-3 mb-0">Already have an account? <a href="login.html" class="text-primary ml-1">login</a></p> -->
+              <!-- end row -->
+          </div>
+          <!-- end col -->
+      </div>
+      <!-- Row -->
+    </div>
+  </div>

@@ -1,0 +1,222 @@
+<%- include("partials/header"); %>
+
+<body>
+
+  <main style="margin-top: 10rem; margin-bottom: 15rem;">
+
+    <div class="basket">
+
+      <h1 class="title">Cart</h1>
+
+      <% if (cart.products > []) { %>
+
+        <div class="card generate-pdf-div">
+          <button class="generate-pdf">
+            Generate PDF Quotation
+           </button>
+        </div>
+
+        <div class="basket-labels">
+          <ul>
+            <li class="item item-heading">Item</li>
+            <li class="price">Price</li>
+            <li class="quantity">Quantity</li>
+            <li class="subtotal">Subtotal</li>
+          </ul>
+        </div>
+
+        <% cart.products.forEach(product => { %> 
+
+          <div class="basket-product">
+            <div class="item">
+              <div class="product-image">
+                <img src="<%= product.image %> " alt="<%= product.name %> " class="product-frame">
+              </div>
+              
+              <div class="product-details">
+                <h1><strong><span class="item-quantity"><%= product.qty %></span> X <%= product.title %></strong></h1>
+                <p><strong><%= product.name %> </strong></p>
+              </div>
+            </div>
+            <div class="price"><%= product.price %></div>
+            
+            <div class="quantity">
+              <a href="/cart/update/<%= product.slug %>?action=add"><span class="cart-control">+</span></a><p class="quantity-field"><%= product.qty %> </p><a href="/cart/update/<%= product.slug %>?action=remove" class=""><span class="cart-control">-</span></a>
+            </div>
+            <div id="subTotal" class="subtotal"><%= product.subTotal %></div>
+            <div class="remove">
+              <a href="/cart/update/<%= product.slug %>?action=clear">Remove</a>
+            </div>
+          </div>  
+
+        <% }); %> 
+      <% } else { %>
+        <div style="padding: 2rem; margin-top: 2rem; background-color: rgb(241, 242, 243);" class="card">
+          <h6 class="title">You don't have any items in your cart</h6>
+          <h6>Go <a href="/wholesale">shopping</a>!</h6>
+        </div>
+      <% } %> 
+
+    </div>
+
+
+    <aside>
+      <div class="summary">
+        <div class="summary-total-items"><span class=""></span> You have <%= cart.qty %> products in your cart</div>
+        <div class="summary-subtotal">
+          <div class="subtotal-title">Subtotal</div>
+          <div class="subtotal-value final-value" id="basket-subtotal">
+            <%= cart.price %>
+          </div>
+          <div class="summary-promo hide">
+            <div class="promo-title">Promotion</div>
+            <div class="promo-value final-value" id="basket-promo"></div>
+          </div>
+        </div>
+        <div class="summary-delivery">
+          <select name="delivery-collection" class="summary-delivery-selection">
+              <option value="0" selected="selected">Select Collection or Delivery</option>
+             <option value="collection">Collection</option>
+             <option value="first-class">Royal Mail 1st Class</option>
+             <option value="second-class">Royal Mail 2nd Class</option>
+             <option value="signed-for">Royal Mail Special Delivery</option>
+          </select>
+        </div>
+        <div class="summary-total">
+          <div class="total-title">Total</div>
+          <div class="total-value final-value" id="basket-total"><%= cart.total %></div>
+        </div>
+        <div class="summary-checkout">
+          <a class="checkout-cta"  data-toggle="collapse" href="#enter-details" role="button" aria-expanded="false" aria-controls="collapseExample">Generate PDF Quotation</a>
+          <!-- <button class="checkout-cta" type="button" data-toggle="collapse" data-target="#enter-details" aria-expanded="false" aria-controls="collapseExample">
+            Generate PDF Quotation
+          </button> -->
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <div class="collapse well" id="enter-details">
+    <!-- <div class="" id="enter-details" > -->
+    <div id="main-wrapper" class="container">
+      <div class="row justify-content-center">
+          <div class="col-xl-10">
+              <div class="card border-0">
+                  <div class="card-body p-0">
+                      <div class="row no-gutters">
+                          <div class="col-lg-6">
+                              <div class="p-5">
+                                  <div class="mb-5">
+                                      <h3 class="h4 font-weight-bold text-theme">Generate Quotation</h3>
+                                  </div>
+                                  <h6 class="h5 mb-0">Enter your company name</h6>
+                                  <p class="text-muted mt-2">Your company name will be displayed in your Quotation.</p>
+                                  <form>
+
+                                      <div class="form-group">
+                                        <label for="yourName">Company Name</label>
+                                        <input type="text" class="form-control" id="yourName" />
+                                      </div>
+
+                                      <!-- <div class="form-group">
+                                        <label for="yourName">Company Location</label>
+                                        <input type="text" class="form-control" id="yourName" />
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="exampleInputEmail1">Email Address</label>
+                                          <input type="email" class="form-control" id="exampleInputEmail1" />
+                                      </div>
+                                      <div class="form-group mb-5">
+                                          <label for="exampleInputPassword1">Phone Number</label>
+                                          <input type="password" class="form-control" id="exampleInputPassword1" />
+                                      </div> -->
+
+                                      <button type="submit" class="btn btn-theme">Download Quotation</button>
+                                  
+                                    </form>
+                              </div>
+                          </div>
+                          <div class="col-lg-6 d-none d-lg-inline-block">
+                              <div class="account-block rounded-right">
+                                  <div class="overlay rounded-right"></div>
+                                  <div class="account-testimonial">
+                                      <h4 class="text-white mb-4">Eyemed Optical Suppliers</h4>
+                                      <p class="lead text-white">We are a country-wide wholesale supplier of eye products, we have worldclass quality frames and medication. get a quotaion online and contact us to make your purchase!</p>
+                                      <p></p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- end card-body -->
+              </div>
+              <!-- end card -->
+              <!-- <p class="text-muted text-center mt-3 mb-0">Already have an account? <a href="login.html" class="text-primary ml-1">login</a></p> -->
+              <!-- end row -->
+          </div>
+          <!-- end col -->
+      </div>
+      <!-- Row -->
+    </div>
+  </div>
+
+<style type="text/css">
+
+#enter-details {
+  margin-top: -13rem;
+  margin-bottom: 5rem;
+}
+
+body {
+    margin-top: 20px;
+    background: #f6f9fc;
+}
+.account-block {
+    padding: 0;
+    /* background-image: url(https://via.placeholder.com/500x500/FFB6C1/000000); */
+    background-image: url("/assets/img/form_background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    position: relative;
+}
+.account-block .overlay {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.account-block .account-testimonial {
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    margin: 0 auto;
+    padding: 0 1.75rem;
+    bottom: 3rem;
+    left: 0;
+    right: 0;
+}
+.text-theme {
+    color: #5369f8 !important;
+}
+.btn-theme {
+    background-color: #5369f8;
+    border-color: #5369f8;
+    color: #fff;
+    margin: 1.5rem 0;
+}
+.btn-theme:hover {
+  color: #fff;
+}
+
+</style>
+
+</body>
+
+<%- include("partials/footer"); %>

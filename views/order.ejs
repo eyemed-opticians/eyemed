@@ -1,0 +1,96 @@
+<%- include("partials/header"); %>
+
+
+    <!-- ======= Appointment Section ======= -->
+    <section id="appointment" class="appointment section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Make an Appointment</h2>
+          <p>
+            Schedule an appointment with our dedicated doctors to get your eyes examined. We will get in touch with you via email or phone to confirm your appointment date and time.
+          </p>
+        </div>
+
+        <form action="/contact/appointment" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+          <div class="form-row">
+            <div class="col-md-4 form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-md-4 form-group">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+              <div class="validate"></div>
+            </div>
+            <div class="col-md-4 form-group">
+              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-12 form-group">
+              <input type="date" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
+            <div class="validate"></div>
+          </div>
+          <div class="mb-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
+          </div>
+          <div class="text-center"><button type="submit">Make an Appointment</button></div>
+        </form>
+
+      </div>
+    </section><!-- End Appointment Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Testimonials</h2>
+          <p>
+            Here is what our customers are saying about our products and services.
+          </p>
+        </div>
+
+        <div class="owl-carousel testimonials-carousel" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="testimonial-item">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Eyemed opticians offers professional and convinient services.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <!-- <img src="" class="testimonial-img" alt=""> -->
+            <h3>Everlyn Mercys</h3>
+            <h4>Customer</h4>
+          </div>
+
+          <% testimonials.forEach(testimonial => { %>
+
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  <%= testimonial.remarks %>
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="<%= testimonial.image %>" class="testimonial-img" alt="">
+              <h3><%= testimonial.name %></h3>
+              <h4><%= testimonial.position %></h4>
+            </div>
+
+          <% }); %>
+
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+  <%- include("partials/footer") %>

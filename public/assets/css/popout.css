@@ -1,0 +1,24 @@
+/* styles for the two popouts on on the cart page */
+
+.popout-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.popout {
+    display: inline-flex;
+    position: fixed;
+    color: #555555;
+    padding: 10px 20px;
+    font-weight: 500;
+    height: 100%;
+    outline: none;
+    top: 1rem;
+    background-color: #d4d4d4;
+}
+
+
+.hide {
+    display: none !important;
+}
