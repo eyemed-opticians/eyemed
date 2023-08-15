@@ -289,7 +289,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm start",
     "dev": "nodemon start",
-    "setup": "npm i --force && npm audit fix --force"
+    "setup_init": "npm i --force && npm audit fix --force"
   },
   "repository": {
     "type": "git",
